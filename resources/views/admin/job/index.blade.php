@@ -18,7 +18,7 @@
           @foreach ($jobs as $job)              
           <tr>
             <th scope="row">{{ $no++ }}</th>
-            <td>{{ ucwords($job->nama) }}</td>
+            <td><a href="{{ route('job.show', $job->id) }}" class="text-decoration-none text-dark">{{ ucwords($job->nama) }}</a></td>
             <td>
                 <div class="d-flex justify-content-evenly">
                     <a href="{{ route('job.edit',$job->id) }}" class="btn btn-warning btn-sm ">Edit</a>
@@ -47,14 +47,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Yakin ingin menghapus job : <div class="fw-bold">{{ $job->nama }}</div>
+          Yakin ingin menghapus job : <div class="fw-bold">{{ ucwords($job->nama) }}</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
           <form action="{{ route('job.destroy', $job) }}" method="post">
             @csrf
             @method('delete')
-            <button type="submit" class="btn btn-primary" onclick="return confirm('delete')">Hapus</button>
+            <button type="submit" class="btn btn-primary" onclick="return true">Hapus</button>
           </form>
         </div>
       </div>

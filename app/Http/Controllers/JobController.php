@@ -63,7 +63,8 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        //
+        $job =  Job::find($id)->first();
+        return view('admin/job/show', compact('job'));
     }
 
     /**
@@ -111,9 +112,6 @@ class JobController extends Controller
     public function destroy($id)
     {
         Job::find($id)->delete();
-        // return dd($id);
-        // $job = DB::table('jobs')->where('id',$id)->first();
-        // $job->delete();
         return redirect()->route('job.index');
 
     }
