@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\KusionerController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::get('/',[PostController::class,'index'])->name('post.index');
 // manage job
 Route::resource('job', JobController::class);
 // Route::get('job/{job:id}/delete', [JobController::class,'delete'])->name('job.delete');
+
+// manage kusioner
+Route::resource('kusioner', KusionerController::class);

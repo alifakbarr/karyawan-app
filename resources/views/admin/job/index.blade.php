@@ -6,8 +6,8 @@
 </div>
 <div class="table-responsive">
     <table class="table table-hover table-bordered ">
-        <thead>
-          <tr class="table-primary">
+        <thead class="">
+          <tr class=" bg-primary text-white">
             <th scope="col">No</th>
             <th scope="col">Job</th>
             <th scope="col">Option</th>

@@ -19,6 +19,12 @@
           <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Job</span>
         </a>
       </li>
+      <li class="sidebar-item {{ request()->is('kusioner')? 'active':'' }}">
+        <a class="sidebar-link" href="{{ route('kusioner.index') }}">
+          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Kusioner</span>
+        </a>
+      </li>
+
 
     </ul>
 
