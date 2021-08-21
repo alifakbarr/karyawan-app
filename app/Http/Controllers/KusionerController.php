@@ -26,7 +26,8 @@ class KusionerController extends Controller
      */
     public function create()
     {
-        return view('admin/kusioner/create');
+        $kusioner = new Kusioner();
+        return view('admin/kusioner/create', compact('kusioner'));
     }
 
     /**
@@ -69,7 +70,9 @@ class KusionerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kusioner = Kusioner::find($id)->first();
+
+        return view('admin/kusioner/edit', compact('kusioner'));
     }
 
     /**
@@ -79,9 +82,19 @@ class KusionerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kusioner $kusioner)
     {
-        //
+        $request->validate([
+            'pertanyaan' => 'required'
+        ],[
+            'pertanyaan.required' => 'Petanyaan belum disi'
+        ]);
+
+        $data = $request->all();
+        $kusioner->update($data);
+
+        return redirect()->route('kusioner.index');
+        
     }
 
     /**
@@ -92,6 +105,8 @@ class KusionerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kusioner::find($id)->delete();
+
+        return back();
     }
 }
