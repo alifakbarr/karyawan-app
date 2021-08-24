@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\KusionerController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,6 @@ Route::resource('job', JobController::class);
 
 // manage kusioner
 Route::resource('kusioner', KusionerController::class);
+
+// manage penilaian
+Route::resource('penilaian', PenilaianController::class);
