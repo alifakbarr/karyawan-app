@@ -25,26 +25,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// manage Admin Page
-Route::resource('adminPage', AdminPageController::class);
+Route::group(['middleware' => ['role:admin']], function () {
+    // manage Admin Page
+    Route::resource('adminPage', AdminPageController::class);
+    
+    // manage job
+    Route::resource('job', JobController::class);
+    // Route::get('job/{job:id}/delete', [JobController::class,'delete'])->name('job.delete');
+    
+    // manage kusioner
+    Route::resource('kusioner', KusionerController::class);
+    
+    // manage task
+    Route::resource('task', TaskController::class);
+    
+    // manage penilaian
+    Route::resource('penilaian', PenilaianController::class);
+});
 
-// manage Head Of Page
-Route::resource('headOfPage', HeadOfPageController::class);
+Route::group(['middleware' => ['role:headOf']], function () {
+    // manage Head Of Page
+    Route::resource('headOfPage', HeadOfPageController::class);
+});
 
-// manage User Page
-Route::resource('userPage', UserPageController::class);
-// manage job
-Route::resource('job', JobController::class);
-// Route::get('job/{job:id}/delete', [JobController::class,'delete'])->name('job.delete');
+Route::group(['middleware' => ['role:user']], function () {
+    // manage User Page
+    Route::resource('userPage', UserPageController::class);
+});
 
-// manage kusioner
-Route::resource('kusioner', KusionerController::class);
-
-// manage task
-Route::resource('task', TaskController::class);
-
-// manage penilaian
-Route::resource('penilaian', PenilaianController::class);
 
 Auth::routes();
 
