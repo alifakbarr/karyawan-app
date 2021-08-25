@@ -1,6 +1,5 @@
 @extends('admin.layout.template')
-@section('title','Karyawan')
-
+@section('title', 'User')
 @section('content')
-    <h1>hello</h1>
+    <h1>User</h1>
 @endsection

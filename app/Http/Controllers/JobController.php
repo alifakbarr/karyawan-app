@@ -63,7 +63,7 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $job =  Job::find($id)->first();
+        $job =  Job::where('id',$id)->first();
         return view('admin/job/show', compact('job'));
     }
 

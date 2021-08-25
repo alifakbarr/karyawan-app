@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <td class="text-center fw-bold">
-                    <span class="bg-success p-1 rounded">{{ $task->start }}</span> Sampai <span class="bg-danger p-1 rounded">{{ $task->deadLine }}</span></td>
+                    <span class="bg-success p-1 rounded">{{ date('d-M-Y', strtotime($task->start));}}</span> Sampai <span class="bg-danger p-1 rounded">{{ date('d-M-Y', strtotime($task->deadLine)); }}</span></td>
             </tr>
             <tr class="bg-primary text-white">
                 <th class="text-center ">Deskripsi</th>
