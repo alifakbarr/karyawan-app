@@ -95,7 +95,9 @@ class KaryawanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jobs = Job::get();
+        $karyawan = Karyawan::where('id',$id)->first();
+        return view('profilPage.edit', compact('karyawan','jobs'));
     }
 
     /**
@@ -105,9 +107,23 @@ class KaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Karyawan $karyawan)
     {
-        //
+        $data = $request->all();
+
+        if($request->file('foto')){
+            \Storage::delete($karyawan->foto);
+            $foto=$request->file('foto')->store('images/karyawan');
+        }else{
+            $foto=$karyawan->foto;
+        }
+
+        $data['job'] = request('job');
+        $data['foto'] = $foto;
+
+        $karyawan->update($data);
+
+        return redirect()->route('karyawan.index');
     }
 
     /**
