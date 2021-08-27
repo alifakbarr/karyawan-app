@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\HeadOfPageController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\KusionerController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PostController;
@@ -24,6 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => ['role:admin|headOf|user']], function () {
+    // manage Head Of Page
+    Route::resource('karyawan', KaryawanController::class);
+});
+
 
 Route::group(['middleware' => ['role:admin']], function () {
     // manage Admin Page

@@ -13,7 +13,7 @@
 	<link rel="shortcut icon" href="{{ asset('icon/building.svg') }}" />
 
 	<title>@yield('title')</title>
-
+	<link rel="stylesheet" href="{{ asset('style.css') }}">
 	<link href="{{ asset('admin/static/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="{{ asset('ckeditor5/ckeditor.js') }}"></script>
@@ -183,7 +183,7 @@
                 <img src="{{ asset('admin/static/img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ Auth::user()->name }}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+								<a class="dropdown-item" href="{{ route('karyawan.index') }}"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="pages-settings.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>

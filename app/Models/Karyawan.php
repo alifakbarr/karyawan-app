@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class Karyawan extends Model
 {
     use HasFactory;
-    protected $table = 'jobs';
-    protected $guarded = ['id'];
-    // protected $fillable = ['nama','keterangan'];
 
-    public function karyawans(){
-        return $this->hasMany(Karyawan::class);
+    protected $guarded = ['id'];
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function job(){
+        return $this->belongsTo(Job::class);
     }
 }

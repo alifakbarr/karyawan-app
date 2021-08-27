@@ -1,0 +1,23 @@
+.profile{
+    width: 250px;
+}
+@media screen and (max-width: 550px) {
+    .cover{
+        height: 70px;
+        overflow: hidden;
+    }
+    
+    .cover img{
+        margin-top: -50px !important;
+    }
+
+    .profile-head{
+        margin-top: -25px;
+    }
+    
+    .profile-head img{
+        width: 77px !important;
+        height: 80px !important;
+    }
+}
+

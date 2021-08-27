@@ -41,12 +41,13 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if($user->hasRole('admin')){
-            return redirect()->route('adminPage.index');
-        }elseif($user->hasRole('headOf')){
-            return redirect()->route('headOfPage.index');
-        }else{
-            return redirect()->route('userPage.index');
-        }
+        return redirect()->route('karyawan.index');
+        // if($user->hasRole('admin')){
+        //     return redirect()->route('adminPage.index');
+        // }elseif($user->hasRole('headOf')){
+        //     return redirect()->route('headOfPage.index');
+        // }else{
+        //     return redirect()->route('userPage.index');
+        // }
     }
 }
