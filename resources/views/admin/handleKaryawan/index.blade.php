@@ -8,7 +8,7 @@
             <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">Job</th>
-            <th scope="col">Option</th>
+            <th scope="col">Gabung pada</th>
           </tr>
         </thead>
         <tbody>
@@ -16,14 +16,15 @@
         @foreach ($karyawans as $karyawan)            
         <tr>
           <th scope="row">{{ $no++ }}</th>
-          <td>{{ $karyawan->nama }}</td>
-          <td>{{ $karyawan->Job->nama }}</td>
-          <td>
-              <a href="{{ route('adminPage', $karyawan->id) }}" class="btn btn-sm btn-warning">Edit</a>
-          </td>
+          <td><a href="{{ route('handleKaryawan.show', $karyawan->id) }}" class="text-decoration-none text-dark">{{ $karyawan->nama }}</a></td>
+          <td>{{ $karyawan->Job->nama ?? 'Belum memilih' }}</td>
+          <td>{{ date('d-M-Y', strtotime($karyawan->created_at));}}</td>
         </tr>
         @endforeach
         </tbody>
       </table>
+</div>
+<div class="d-flex justify-content-center mt-4">
+  {{ $karyawans->links() }}
 </div>
 @endsection

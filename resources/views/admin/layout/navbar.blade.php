@@ -9,36 +9,51 @@
         Pages
       </li>
       @if (auth()->user()->hasRole('admin'))
+      <li class="sidebar-item {{ request()->is('karyawan')? 'active':'' }}">
+        <a class="sidebar-link" href="{{ route('karyawan.index') }}">
+          <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
+        </a>
+      </li>
+      <li class="sidebar-item {{ request()->is('handleKaryawan')? 'active':'' }}">
+        <a class="sidebar-link" href="{{ route('handleKaryawan.index') }}">
+          <i class="align-middle" data-feather="users"></i> <span class="align-middle">Karyawan</span>
+        </a>
+      </li>
       <li class="sidebar-item {{ request()->is('job')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('job.index') }}">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Job</span>
+          <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Job</span>
         </a>
       </li>
       <li class="sidebar-item {{ request()->is('kusioner')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('kusioner.index') }}">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Kusioner</span>
+          <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Kusioner</span>
         </a>
       </li>
       <li class="sidebar-item {{ request()->is('task')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('task.index') }}">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Task</span>
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Task</span>
         </a>
       </li>
       <li class="sidebar-item {{ request()->is('penilaian')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('penilaian.index') }}">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Penilaian</span>
+          <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Penilaian</span>
         </a>
       </li>
       @elseif(auth()->user()->hasRole('headOf'))
       <li class="sidebar-item {{ request()->is('karyawan')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('karyawan.index') }}">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Profile</span>
+          <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
         </a>
       </li>
       @elseif(auth()->user()->hasRole('user'))
       <li class="sidebar-item {{ request()->is('karyawan')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('karyawan.index') }}">
-          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Profile</span>
+          <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
+        </a>
+      </li>
+      <li class="sidebar-item {{ request()->is('taskKaryawan')? 'active':'' }}">
+        <a class="sidebar-link" href="{{ route('taskKaryawan.index') }}">
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Tasks</span>
         </a>
       </li>
       @endif

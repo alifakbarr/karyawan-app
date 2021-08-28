@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Karyawan;
 use Illuminate\Http\Request;
 
-class AdminPageController extends Controller
+class HandleKaryawanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminPageController extends Controller
      */
     public function index()
     {
-        $karyawans = Karyawan::get();
-        return view('admin.adminPage.index', compact('karyawans'));
+        $karyawans = Karyawan::paginate(50);
+        return view('admin/handleKaryawan/index', compact('karyawans'));
     }
 
     /**
@@ -47,7 +47,8 @@ class AdminPageController extends Controller
      */
     public function show($id)
     {
-        //
+        $karyawan = Karyawan::where('id',$id)->first();
+        return view('admin/handleKaryawan/show', compact('karyawan'));
     }
 
     /**

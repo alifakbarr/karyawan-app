@@ -41,9 +41,11 @@ class KaryawanController extends Controller
     {
         $request->validate([
             'nip' => 'required|unique:karyawans',
+            'job'=> 'required'
         ],[
             'nip.required' => 'Nip wajib diisi',
             'nip.unique' => 'Nip sudah dipakai',
+            'required' => 'Job wajib dipilih'
         ]);
         
         $data = $request->all();

@@ -14,11 +14,9 @@ class CreateKaryawansTable extends Migration
     public function up()
     {
         Schema::create('karyawans', function (Blueprint $table) {
-            // $table->unsignedInteger('job_id')->nullable();
-            // $table->unsignedInteger('user_id')->nullable();
+            // $table->unsignedInteger('job_id');
+            // $table->unsignedInteger('user_id');
             $table->id();
-            $table->foreignId('job_id')->constraine('jobs')->nullable();
-            $table->foreignId('user_id')->constraine('users')->nullable();
             // $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('nip')->nullable();

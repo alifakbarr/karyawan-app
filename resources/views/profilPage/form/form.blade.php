@@ -11,13 +11,24 @@
   <div class="d-flex justify-content-evenly">
   @foreach ($jobs as $job)
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="job" id="{{ $job->id }}" value="{{ $job->id }}" {{ $karyawan->Job->id === $job->id ? 'checked':'' }}>
+        <input class="form-check-input" type="radio" name="job" id="{{ $job->id }}" value="{{ $job->id }}" 
+        @if (!$karyawan->Job)
+        
+        @else
+        {{ $karyawan->Job->id === $job->id ? 'checked':''}}
+        @endif
+        >
         <label class="form-check-label" for="{{ $job->id }}">
           {{ $job->nama }}
         </label>
       </div>
    @endforeach
-  </div>     
+  </div> 
+  @error('job')
+  <div class="nama text-danger">
+    {{ $message }}
+  </div>
+  @enderror    
   <div class="mb-3">
     <label for="nama" class="form-label">Nama</label>
     <input type="text" class="form-control" id="nama" placeholder="Masukkan nama" name="nama" value="{{ old('nama') ?? $karyawan->nama }}">

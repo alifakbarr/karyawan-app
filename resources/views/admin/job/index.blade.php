@@ -1,6 +1,8 @@
 @extends('admin.layout.template')
 @section('title','Job')
 @section('content')
+@include('admin.layout.alert')
+
 <div class="d-flex justify-content-end mb-2">
     <a href="{{ route('job.create') }}" class="btn btn-primary btn-sm ">Add</a>
 </div>
