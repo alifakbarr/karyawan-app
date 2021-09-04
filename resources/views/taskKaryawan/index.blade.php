@@ -1,6 +1,9 @@
 @extends('admin.layout.template')
 @section('title', 'Tasks')
 @section('content')
+<div class="d-flex justify-content-end mb-2">
+  <a href="{{ route('taskKaryawan.myTask',Auth::user()->id) }}" class="btn btn-sm btn-primary">My Task</a>
+</div>
 <div class="table-responsive">
     <table class="table table-hover table-bordered ">
         <thead class="">
@@ -13,7 +16,7 @@
         </thead>
         <tbody>
         @php ($no = 1)
-        @foreach ($tasks as $task)
+        @foreach (Auth::user()->tugas as $task)
         <tr>
           <th scope="row">{{ $no++ }}</th>
           <td><a href="{{ route('taskKaryawan.show', $task->id) }}" class="text-decoration-none text-dark">{{ $task->judul }}</a></td>

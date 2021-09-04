@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskKaryawanController extends Controller
 {
@@ -36,7 +38,7 @@ class TaskKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -57,6 +59,15 @@ class TaskKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function myTask($id){
+        // $id = Auth::user()->id;
+        $user = User::where('id',$id)->first();
+        // $user = User::get();
+        // dd($user->tugas);
+        // dd($user);
+        return view('taskKaryawan/myTask', compact('user'));
+    }
     public function edit($id)
     {
         //

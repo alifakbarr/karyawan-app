@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Karyawan extends Model
 {
@@ -18,4 +19,6 @@ class Karyawan extends Model
     public function job(){
         return $this->belongsTo(Job::class);
     }
+
+  
 }

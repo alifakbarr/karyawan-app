@@ -45,4 +45,18 @@ class User extends Authenticatable
     public function karyawans(){
         return $this->hasMany(Karyawan::class);
     }
+
+    public function tasks(){
+        return $this->belongsToMany(Task::class,'user_task');
+    }
+
+    // relasi
+    public function tugas(){
+        return $this->BelongsToMany(User::class, 'user_task', 'user_id','task_id')->withTimestamps();
+    }
+
+    // action
+    public function ambilTasks(Task $task){
+        return $this->tugas()->save($task);
+    }
 }

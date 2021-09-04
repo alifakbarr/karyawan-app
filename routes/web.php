@@ -64,6 +64,7 @@ Route::group(['middleware' => ['role:user']], function () {
 
     // manage TaskKaryawan
     Route::resource('taskKaryawan', TaskKaryawanController::class);
+    Route::get('/taskKaryawan/myTask/{User:id}',[TaskKaryawanController::class, 'myTask'])->name('taskKaryawan.myTask');
 });
 
 
