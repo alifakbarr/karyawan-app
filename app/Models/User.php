@@ -50,17 +50,17 @@ class User extends Authenticatable
         return $this->belongsToMany(Task::class,'user_task');
     }
 
-    // relasi
-    public function tugas(){
-        return $this->BelongsToMany(User::class, 'user_task', 'user_id','task_id')->withTimestamps();
-    }
+    // // relasi
+    // public function tugas(){
+    //     return $this->BelongsToMany(User::class, 'user_task', 'user_id','task_id')->withTimestamps();
+    // }
 
-    // action
-    public function ambilTasks(Task $task){
-        return $this->tugas()->save($task);
-    }
+    // // action
+    // public function ambilTasks(Task $task){
+    //     return $this->tugas()->save($task);
+    // }
 
-    public function sudahAmbilTask(User $user){
-        return $this->tugas()->where('task_id', $user->id)->exists();
-    }
+    // public function sudahAmbilTask(User $user){
+    //     return $this->tugas()->where('task_id', $user->id)->exists();
+    // }
 }

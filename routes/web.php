@@ -31,14 +31,9 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('job', JobController::class);
     // Route::get('job/{job:id}/delete', [JobController::class,'delete'])->name('job.delete');
     
-    // manage kusioner
-    Route::resource('kusioner', KusionerController::class);
     
     // manage task
     Route::resource('task', TaskController::class);
-    
-    // manage penilaian
-    Route::resource('penilaian', PenilaianController::class);
 });
 
 

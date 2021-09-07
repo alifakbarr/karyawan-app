@@ -24,21 +24,10 @@
           <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Job</span>
         </a>
       </li>
-      <li class="sidebar-item {{ request()->is('kusioner')? 'active':'' }}">
-        <a class="sidebar-link" href="{{ route('kusioner.index') }}">
-          <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Kusioner</span>
-        </a>
-      </li>
       <li class="sidebar-item {{ request()->is('task')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('task.index') }}">
           <i class="align-middle" data-feather="target"></i> <span class="align-middle">Task</span>
         </a>
-      </li>
-      <li class="sidebar-item {{ request()->is('penilaian')? 'active':'' }}">
-        <a class="sidebar-link" href="{{ route('penilaian.index') }}">
-          <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Penilaian</span>
-        </a>
-      </li>
       @elseif(auth()->user()->hasRole('headOf'))
       <li class="sidebar-item {{ request()->is('karyawan')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('karyawan.index') }}">
