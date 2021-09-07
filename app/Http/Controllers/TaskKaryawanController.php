@@ -16,7 +16,8 @@ class TaskKaryawanController extends Controller
      */
     public function index()
     {
-        $tasks = Task::paginate(50);
+        // $tasks = Task::whereNotIn('id', Auth::user()->id)->paginate(50);
+        $tasks = Task::where(50);
         return view('taskKaryawan/index', compact('tasks'));
     }
 

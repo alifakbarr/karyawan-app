@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTugasTable extends Migration
+class CreateNilaisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTugasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tugas', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('task_id')->constrained('tasks')->onDelete('cascade');
-            $table->primary(['user_id', 'task_id']);
+        Schema::create('nilais', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_task_id')->constrained('user_task')->onDelete('cascade');
+            $table->integer('jml_task');
+            $table->integer('nilai');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTugasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tugas');
+        Schema::dropIfExists('nilais');
     }
 }

@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         @php ($no = 1)
-        @foreach (Auth::user()->tugas as $task)
+        @foreach ($tasks as $task)
         <tr>
           <th scope="row">{{ $no++ }}</th>
           <td><a href="{{ route('taskKaryawan.show', $task->id) }}" class="text-decoration-none text-dark">{{ $task->judul }}</a></td>

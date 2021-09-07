@@ -32,9 +32,16 @@
                 <td class="text-center">
                     <span>Ambil project sekarang?</span>
                     <br>
-                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $task->id }}">
+
+                    <form action="{{ route('taskKaryawan.store') }}" method="post">
+                      @csrf
+                      <button type="submit" class="btn btn-warning btn-sm">
                         Ambil
-                    </button>
+                      </button>
+                    </form>
+                    {{-- <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $task->id }}">
+                        Ambil
+                    </button> --}}
                 </td>
             </tr>
         </tbody>

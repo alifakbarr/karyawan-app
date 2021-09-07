@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function ambilTasks(Task $task){
         return $this->tugas()->save($task);
     }
+
+    public function sudahAmbilTask(User $user){
+        return $this->tugas()->where('task_id', $user->id)->exists();
+    }
 }
