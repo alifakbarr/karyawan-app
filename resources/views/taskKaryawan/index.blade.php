@@ -25,7 +25,8 @@
             <div class="d-flex justify-content-center">
               <a href="{{ route('taskKaryawan.show', $task->id) }}" class="text-decoration-none text-dark">
                 <span class="bg-secondary rounded p-1 fw-bold text-white">
-                  {{ $task->status }}
+                  {{-- mengecek apakah sudah ada di table user_task --}}
+                  {{ $task->user_tasks->count() > 0 ? 'Sudah' : 'Belum' }}
                 </span>
               </a>
             </div>

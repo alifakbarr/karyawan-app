@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Karyawan;
-use App\Models\User;
+use App\Models\Task;
+use App\Models\user_task;
 use App\Models\UserTask;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class HandleKaryawanController extends Controller
+class UserTaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,7 @@ class HandleKaryawanController extends Controller
      */
     public function index()
     {
-        $karyawans = Karyawan::paginate(50);
-        return view('admin/handleKaryawan/index', compact('karyawans'));
+        //
     }
 
     /**
@@ -40,7 +37,11 @@ class HandleKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = $request->all();
+        UserTask::create($data);
+
+        return redirect()->route('taskKaryawan.index');
     }
 
     /**
@@ -51,10 +52,7 @@ class HandleKaryawanController extends Controller
      */
     public function show($id)
     {
-        $karyawanId = Karyawan::where('user_id',$id)->first();
-        $user_task = UserTask::where('user_id', $karyawanId->user_id)->where('progress','proses')->get();
-        $karyawan = Karyawan::where('id',$id)->first();
-        return view('admin/handleKaryawan/show', compact('karyawan', 'user_task'));
+        //
     }
 
     /**

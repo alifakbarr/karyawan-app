@@ -50,6 +50,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Task::class,'user_task');
     }
 
+    public function UserTask(){
+        return $this->hasMany(User_task::class);
+    }
     // // relasi
     // public function tugas(){
     //     return $this->BelongsToMany(User::class, 'user_task', 'user_id','task_id')->withTimestamps();

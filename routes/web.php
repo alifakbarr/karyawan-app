@@ -11,6 +11,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskKaryawanController;
 use App\Http\Controllers\UserPageController;
+use App\Http\Controllers\UserTaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,8 @@ Route::group(['middleware' => ['role:admin|headOf|user']], function () {
 
 
 Route::group(['middleware' => ['role:headOf']], function () {
+    // manage handle karyawan
+    Route::resource('handleKaryawan', HandleKaryawanController::class);
     // manage Head Of Page
     // Route::resource('headOfPage', HeadOfPageController::class);
 });
@@ -57,9 +60,12 @@ Route::group(['middleware' => ['role:user']], function () {
     // manage User Page
     // Route::resource('userPage', UserPageController::class);
 
+    // manage usertask
+    Route::resource('userTask', UserTaskController::class);
     // manage TaskKaryawan
     Route::resource('taskKaryawan', TaskKaryawanController::class);
     Route::get('/taskKaryawan/myTask/{User:id}',[TaskKaryawanController::class, 'myTask'])->name('taskKaryawan.myTask');
+    Route::get('/taskKaryawan/showMyTask/{Task:id}',[TaskKaryawanController::class, 'showMyTask'])->name('taskKaryawan.showMyTask');
 });
 
 

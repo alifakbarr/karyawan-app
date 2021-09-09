@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
+use App\Models\UserTask;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TaskKaryawanController extends Controller
 {
@@ -16,8 +18,9 @@ class TaskKaryawanController extends Controller
      */
     public function index()
     {
-        // $tasks = Task::whereNotIn('id', Auth::user()->id)->paginate(50);
-        $tasks = Task::where(50);
+        $tasks = Task::doesntHave('user_tasks')
+        ->with(['user_tasks'])
+            ->paginate(20);
         return view('taskKaryawan/index', compact('tasks'));
     }
 
@@ -50,6 +53,8 @@ class TaskKaryawanController extends Controller
      */
     public function show($id)
     {
+        // $checkUser = UserTask::where('user_id',Auth::user()->id)->first();
+        
         $task = Task::where('id',$id)->first();
         return view('taskKaryawan/show', compact('task'));
     }
@@ -62,16 +67,24 @@ class TaskKaryawanController extends Controller
      */
 
     public function myTask($id){
-        // $id = Auth::user()->id;
-        $user = User::where('id',$id)->first();
-        // $user = User::get();
-        // dd($user->tugas);
-        // dd($user);
-        return view('taskKaryawan/myTask', compact('user'));
+        $user_task = UserTask::with('task')->where('user_id',Auth::user()->id)->get();
+        // dd($user_task->id);
+        $tasks = Task::has('user_tasks')->with(['user_tasks'])->get();
+
+
+        return view('taskKaryawan/myTask', compact('user_task','tasks'));
     }
+
+    public function showMyTask($id){
+        $task = Task::where('id', $id)->first();
+        $user_task_id = UserTask::where('task_id', $task->id)->first();
+
+        return view('taskKaryawan/showMyTask',compact('task','user_task_id'));
+    }
+
     public function edit($id)
     {
-        //
+        
     }
 
     /**

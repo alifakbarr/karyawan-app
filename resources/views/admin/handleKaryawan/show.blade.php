@@ -58,5 +58,36 @@
         </tbody>
     </table>
 </div>
-
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr class="bg-light">
+        <th scope="col"></th>
+        <th scope="col">Jumlah</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="bg-warning">Proses</th>
+        <th>{{ $user_task->count() }}</th>
+      </tr>
+      <tr >
+        <th scope="row" class="bg-primary text-white">Check</th>
+        <th></th>
+      </tr>
+      <tr>
+        <th scope="row" class="bg-secondary text-white">Revisi</th>
+        <th></th>
+      </tr>
+      <tr >
+        <th scope="row" class="bg-success text-white">Selesai</th>
+        <th></th>
+      </tr>
+      <tr >
+        <th scope="row" class="bg-danger text-white">Gagal</th>
+        <th></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
 @endsection

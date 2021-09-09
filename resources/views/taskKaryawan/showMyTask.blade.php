@@ -1,9 +1,12 @@
 @extends('admin.layout.template')
 @section('title')
-    {{ $task->judul }}
+    {{ ucwords($task->judul) }}
 @endsection
 @section('content')
 <div class="container mt-3">
+    <div class="d-flex justify-content-end mb-2">
+        <a href="{{ route('taskKaryawan.edit', $user_task_id) }}" class="btn btn-sm btn-primary text-decoration-none">Edit Alur</a>
+    </div>
     <table class="table table-bordered ">
         <tbody>
             <tr class="bg-primary text-white">
@@ -26,6 +29,12 @@
                 <td>{!! $task->keterangan !!}</td>
             </tr>
             <tr class="bg-primary text-white">
+                <th class="text-center ">Progres alur yang sudah di kerjakan</th>
+            </tr>
+            <tr>
+                <td>{!! $user_task_id->alur ? '' : 'Belum diisi' !!}</td>
+            </tr>
+            <tr class="bg-primary text-white">
                 <th class="text-center ">Option</th>
             </tr>
             <tr>
@@ -46,28 +55,4 @@
         </tbody>
       </table>
 </div>
-
-{{-- modal
-<div class="modal fade" id="exampleModal{{ $task->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-warning">
-          <h5 class="modal-title text-white fw-bold" id="exampleModalLabel">Ambil Task</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Yakin ingin mengambil task : <div class="fw-bold">{{ ucwords($task->judul) }}</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <form action="{{ route('taskKaryawan.edit', $task) }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-primary" onclick="return true">Ambil</button>
-          </form>
-        </div>
-      </div>
-      <a href="{{ route('job.delete',$job->id) }}" class="btn btn-primary ">Hapus</a>
-    </div>
-  </div> --}}
 @endsection

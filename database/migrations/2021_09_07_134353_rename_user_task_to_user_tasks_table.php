@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnStatusToTaskTable extends Migration
+class RenameUserTaskToUserTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class AddColumnStatusToTaskTable extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->enum('status',['belum_diambil','sudah_diambil'])->default('belum_diambil')->after('deadLine');
-        });
+        Schema::rename('user_task','user_tasks');
     }
 
     /**
@@ -25,8 +23,6 @@ class AddColumnStatusToTaskTable extends Migration
      */
     public function down()
     {
-        Schema::table('task', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('user_task');
     }
 }

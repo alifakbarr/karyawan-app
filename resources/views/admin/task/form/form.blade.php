@@ -31,4 +31,12 @@
       {{ $message }}
     </div>
     @enderror
+{{-- 
+    @foreach (['belum_diambil' => "Belum Diambil", 'sudah_diambil' => "Sudah Diambil"] as $status =>$sts)      
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="status" id="" value="{{ $status }}" {{ old('status', $task->status) == $status ? "checked" : "" }}>
+      <label class="form-check-label" for="">{{ $sts }}</label>
+    </div>
+    @endforeach --}}
+
 </div>

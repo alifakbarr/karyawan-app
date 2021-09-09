@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnStatusToTaskTable extends Migration
+class DropColumnStatusOnTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnStatusToTaskTable extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->enum('status',['belum_diambil','sudah_diambil'])->default('belum_diambil')->after('deadLine');
+        Schema::table('tasks', function(Blueprint $table){
+            $table->dropColumn('status');
         });
     }
 
@@ -25,8 +25,6 @@ class AddColumnStatusToTaskTable extends Migration
      */
     public function down()
     {
-        Schema::table('task', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

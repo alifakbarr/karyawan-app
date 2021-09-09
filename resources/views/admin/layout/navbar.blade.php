@@ -34,6 +34,11 @@
           <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
         </a>
       </li>
+      <li class="sidebar-item {{ request()->is('handleKaryawan')? 'active':'' }}">
+        <a class="sidebar-link" href="{{ route('handleKaryawan.index') }}">
+          <i class="align-middle" data-feather="users"></i> <span class="align-middle">Karyawan</span>
+        </a>
+      </li>
       @elseif(auth()->user()->hasRole('user'))
       <li class="sidebar-item {{ request()->is('karyawan')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('karyawan.index') }}">
