@@ -52,6 +52,15 @@ Route::group(['middleware' => ['role:admin|headOf|user']], function () {
 Route::group(['middleware' => ['role:headOf']], function () {
     // manage handle karyawan
     Route::resource('handleKaryawan', HandleKaryawanController::class);
+    Route::get('/handleKaryawan/showTaskProses/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskProses'])->name('handleKaryawan.showTaskProses');
+    Route::get('/handleKaryawan/showTaskCheck/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskCheck'])->name('handleKaryawan.showTaskCheck');
+    Route::get('/handleKaryawan/showTaskRevisi/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskRevisi'])->name('handleKaryawan.showTaskRevisi');
+    Route::get('/handleKaryawan/showTaskSelesai/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskSelesai'])->name('handleKaryawan.showTaskSelesai');
+    Route::get('/handleKaryawan/showTaskGagal/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskGagal'])->name('handleKaryawan.showTaskGagal');
+
+
+
+    
     // manage Head Of Page
     // Route::resource('headOfPage', HeadOfPageController::class);
 });

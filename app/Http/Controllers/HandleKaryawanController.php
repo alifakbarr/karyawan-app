@@ -60,9 +60,48 @@ class HandleKaryawanController extends Controller
 
         $karyawan = Karyawan::where('user_id',$id)->first();
         return view('admin/handleKaryawan/show',
-         compact('karyawan', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal'));
+         compact('karyawan', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal'));
     }
 
+    public function showTaskProses($id){
+        // get user
+        $karyawan = Karyawan::where('user_id',$id)->first();
+        // get task
+        $userTask = UserTask::where('user_id',$id)->where('progress','proses')->paginate(20);
+        return view('admin/handleKaryawan/detail/showTask', compact('userTask', 'karyawan'));
+    }
+
+    public function showTaskCheck($id){
+        // get user
+        $karyawan = Karyawan::where('user_id',$id)->first();
+        // get task
+        $userTask = UserTask::where('user_id',$id)->where('progress','check')->paginate(20);
+        return view('admin/handleKaryawan/detail/showTask', compact('userTask', 'karyawan'));
+    }
+
+    public function showTaskRevisi($id){
+        // get user
+        $karyawan = Karyawan::where('user_id',$id)->first();
+        // get task
+        $userTask = UserTask::where('user_id',$id)->where('progress','revisi')->paginate(20);
+        return view('admin/handleKaryawan/detail/showTask', compact('userTask', 'karyawan'));
+    }
+
+    public function showTaskSelesai($id){
+        // get user
+        $karyawan = Karyawan::where('user_id',$id)->first();
+        // get task
+        $userTask = UserTask::where('user_id',$id)->where('progress','selesai')->paginate(20);
+        return view('admin/handleKaryawan/detail/showTask', compact('userTask', 'karyawan'));
+    }
+
+    public function showTaskGagal($id){
+        // get user
+        $karyawan = Karyawan::where('user_id',$id)->first();
+        // get task
+        $userTask = UserTask::where('user_id',$id)->where('progress','gagal')->paginate(20);
+        return view('admin/handleKaryawan/detail/showTask', compact('userTask', 'karyawan'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
