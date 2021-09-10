@@ -225,7 +225,7 @@
 	{{-- mengatur tinggi ck editor --}}
 	<style>
         .ck-editor__editable_inline{
-            min-height: 200px;
+            min-height: 500px;
         }
 	</style>
 	{{-- menampilkan ckeditor --}}

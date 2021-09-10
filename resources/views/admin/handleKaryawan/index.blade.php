@@ -16,7 +16,7 @@
         @foreach ($karyawans as $karyawan)            
         <tr>
           <th scope="row">{{ $no++ }}</th>
-          <td><a href="{{ route('handleKaryawan.show', $karyawan->id) }}" class="text-decoration-none text-dark">{{ $karyawan->nama }}</a></td>
+          <td><a href="{{ route('handleKaryawan.show', $karyawan->user_id) }}" class="text-decoration-none text-dark">{{ $karyawan->nama }}</a></td>
           <td>{{ $karyawan->Job->nama ?? 'Belum memilih' }}</td>
           <td>{{ date('d-M-Y', strtotime($karyawan->created_at));}}</td>
         </tr>

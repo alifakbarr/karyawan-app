@@ -17,8 +17,8 @@ class AddAndChangeColumnOnUserTaskTable extends Migration
         Schema::table('user_tasks', function(Blueprint $table){
             DB::statement("ALTER TABLE `user_tasks` CHANGE `progress` `progress` ENUM('proses','check','revisi', 'selesai', 'gagal') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'proses';");
             // $table->enum('progress',['proses','check', 'revisi','selesai','gagal'])->after('task_id')->change();
-            $table->longText('alur')->after('progress');
-            $table->longText('keterangan')->after('alur');
+            $table->longText('alur')->nullable()->after('progress');
+            $table->longText('keterangan')->nullable()->after('alur');
         });
     }
 
@@ -29,6 +29,6 @@ class AddAndChangeColumnOnUserTaskTable extends Migration
      */
     public function down()
     {
-        //
+
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\UserTask;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -84,7 +85,8 @@ class TaskKaryawanController extends Controller
 
     public function edit($id)
     {
-        
+        $user_task = UserTask::where('id', $id)->first();
+        return view('taskKaryawan/edit', compact('user_task'));
     }
 
     /**
@@ -96,7 +98,20 @@ class TaskKaryawanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user_task = UserTask::find($id);
+        if($user_task->progress === 'proses'){
+            $data = $request->all();
+            $data['progress'] = 'check';
+            $user_task->update($data);
+        }else{
+            $data = $request->all();
+            $data['progress'] = 'check';
+            $user_task->update($data);
+        };
+        // $data = $request->all();
+        // $user_task->update($data);
+
+        return redirect()->route('taskKaryawan.index');
     }
 
     /**

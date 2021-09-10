@@ -32,22 +32,26 @@
                 <th class="text-center ">Progres alur yang sudah di kerjakan</th>
             </tr>
             <tr>
-                <td>{!! $user_task_id->alur ? '' : 'Belum diisi' !!}</td>
+                <td>{!! $user_task_id->alur ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
+            </tr>
+            <tr class="bg-primary text-white">
+                <th class="text-center ">Catatan</th>
+            </tr>
+            <tr>
+                <td>{!! $user_task_id->keterangan ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
             </tr>
             <tr class="bg-primary text-white">
                 <th class="text-center ">Option</th>
             </tr>
             <tr>
                 <td class="text-center">
-                    <span>Ambil project sekarang?</span>
+                    <span>Check project sekarang?</span>
                     <br>
-                    <form action="{{ route('userTask.store', $task->id) }}" method="post">
+                    <form action="{{ route('taskKaryawan.update', $user_task_id->id) }}" method="post">
                       @csrf
-                      <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                      <input type="hidden" name="task_id" value="{{ $task->id }}">
-                      <input type="hidden" name="progress" value="proses">
-                      <button type="submit" class="btn btn-warning btn-sm">
-                        Ambil
+                      @method('patch')
+                      <button type="submit" class="btn btn-primary btn-sm">
+                        Check
                       </button>
                     </form>
                 </td>

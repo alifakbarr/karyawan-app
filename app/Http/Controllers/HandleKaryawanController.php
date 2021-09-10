@@ -52,9 +52,15 @@ class HandleKaryawanController extends Controller
     public function show($id)
     {
         $karyawanId = Karyawan::where('user_id',$id)->first();
-        $user_task = UserTask::where('user_id', $karyawanId->user_id)->where('progress','proses')->get();
-        $karyawan = Karyawan::where('id',$id)->first();
-        return view('admin/handleKaryawan/show', compact('karyawan', 'user_task'));
+        $user_task_proses = UserTask::where('user_id', $karyawanId->user_id)->where('progress','proses')->get();
+        $user_task_check = UserTask::where('user_id', $karyawanId->user_id)->where('progress','check')->get();
+        $user_task_revisi = UserTask::where('user_id', $karyawanId->user_id)->where('progress','revisi')->get();
+        $user_task_selesai = UserTask::where('user_id', $karyawanId->user_id)->where('progress','selesai')->get();
+        $user_task_gagal = UserTask::where('user_id', $karyawanId->user_id)->where('progress','gagal')->get();
+
+        $karyawan = Karyawan::where('user_id',$id)->first();
+        return view('admin/handleKaryawan/show',
+         compact('karyawan', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal'));
     }
 
     /**

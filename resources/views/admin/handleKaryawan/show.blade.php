@@ -62,30 +62,39 @@
   <table class="table">
     <thead>
       <tr class="bg-light">
-        <th scope="col"></th>
+        <th scope="col">Project</th>
         <th scope="col">Jumlah</th>
+        <th scope="col">Opsi</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row" class="bg-warning">Proses</th>
-        <th>{{ $user_task->count() }}</th>
+        <th>{{ $user_task_proses->count() }}</th>
+        <th class=""><a href="#" class="btn btn-sm btn-warning">Detail Proses</a></th>
       </tr>
       <tr >
         <th scope="row" class="bg-primary text-white">Check</th>
-        <th></th>
+        <th>{{ $user_task_check->count() }}</th>
+        <th class=""><a href="#" class="btn btn-sm btn-primary">Detail Check</a></th>
       </tr>
       <tr>
         <th scope="row" class="bg-secondary text-white">Revisi</th>
-        <th></th>
+        <th>{{ $user_task_revisi->count() }}</th>
+        <th class=""><a href="#" class="btn btn-sm btn-secondary">Detail Revisi</a></th>
+
       </tr>
       <tr >
         <th scope="row" class="bg-success text-white">Selesai</th>
-        <th></th>
+        <th>{{ $user_task_selesai->count() }}</th>
+        <th class=""><a href="#" class="btn btn-sm btn-success">Detail Selesai</a></th>
+
       </tr>
       <tr >
         <th scope="row" class="bg-danger text-white">Gagal</th>
-        <th></th>
+        <th>{{ $user_task_gagal->count() }}</th>
+        <th class=""><a href="#" class="btn btn-sm btn-danger">Detail Gagal</a></th>
+
       </tr>
     </tbody>
   </table>
