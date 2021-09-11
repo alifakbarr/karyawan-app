@@ -57,6 +57,8 @@ Route::group(['middleware' => ['role:headOf']], function () {
     Route::get('/handleKaryawan/showTaskRevisi/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskRevisi'])->name('handleKaryawan.showTaskRevisi');
     Route::get('/handleKaryawan/showTaskSelesai/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskSelesai'])->name('handleKaryawan.showTaskSelesai');
     Route::get('/handleKaryawan/showTaskGagal/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskGagal'])->name('handleKaryawan.showTaskGagal');
+    Route::get('/handleKaryawan/showTaskKaryawan/{UserTask:id}',[HandleKaryawanController::class, 'showTaskKaryawan'])->name('handleKaryawan.showTaskKaryawan');
+
 
 
 

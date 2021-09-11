@@ -19,14 +19,32 @@
             @foreach ($userTask as $task)
             <tr>
               <th scope="row">{{ $no++ }}</th>
-              <td><a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">{{ $task->task->judul }}</a></td>
-              <td><a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">{{ date('d-M-Y', strtotime($task->task->start));}} Sampai {{ date('d-M-Y', strtotime($task->task->deadLine));}}</a></td>
+              <td><a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">{{ $task->task->judul }}</a></td>
+              <td><a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">{{ date('d-M-Y', strtotime($task->task->start));}} Sampai {{ date('d-M-Y', strtotime($task->task->deadLine));}}</a></td>
               <td>
                 <div class="d-flex justify-content-center">
-                  <a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">
-                    <span class="bg-secondary rounded p-1 fw-bold text-white">
-                      {{ $task->progress }}
-                    </span>
+                  <a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">
+                    @if ($task->progress === 'proses')
+                    <div class="bg-warning text-center rounded p-1 fw-bold">
+                        {{ ucwords($task->progress) }}
+                    </div>
+                    @elseif($task->progress === 'check')
+                    <div class="bg-primary text-center rounded text-white p-1 fw-bold">
+                        {{ ucwords($task->progress) }}
+                    </div>
+                    @elseif($task->progress === 'selesai')
+                    <div class="bg-secondary text-center rounded text-white p-1 fw-bold">
+                        {{ ucwords($task->progress) }}
+                    </div>
+                    @elseif($task->progress === 'revisi')
+                    <div class="bg-success text-center rounded text-white p-1 fw-bold">
+                        {{ ucwords($task->progress) }}
+                    </div>
+                    @elseif($task->progress === 'gagal')
+                    <div class="bg-danger text-center rounded text-white p-1 fw-bold">
+                        {{ ucwords($task->progress) }}
+                    </div>
+                    @endif
                   </a>
                 </div>
               </td>

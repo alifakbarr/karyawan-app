@@ -108,9 +108,19 @@ class HandleKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function showTaskKaryawan($id){
+        $userTask = UserTask::where('id',$id)->first();
+        $karyawan = Karyawan::where('user_id',$userTask->user_id)->first();
+        return view('admin/handleKaryawan/detail/showTaskKaryawan', compact('userTask', 'karyawan'));
+    }
+
     public function edit($id)
     {
-        //
+        $userTask = UserTask::where('id',$id)->first();
+        $karyawan = Karyawan::where('user_id',$userTask->user_id)->first();
+        $progress = ['revisi','selesai', 'gagal'];
+        return view('admin/handleKaryawan/form/edit', compact('userTask', 'karyawan', 'progress'));
     }
 
     /**
@@ -122,7 +132,12 @@ class HandleKaryawanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $userTask = UserTask::find($id);
+        $data = $request->all();
+
+        $userTask->update($data);
+        return redirect()->back();
+
     }
 
     /**
