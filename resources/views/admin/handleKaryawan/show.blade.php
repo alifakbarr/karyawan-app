@@ -58,6 +58,7 @@
         </tbody>
     </table>
 </div>
+{{ $hitung ?? 'Tidak ada' }}
 <div class="table-responsive">
   <table class="table">
     <thead>

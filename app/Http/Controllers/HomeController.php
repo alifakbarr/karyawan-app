@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.userPage.index');
+        $karyawan = Karyawan::where('user_id',auth()->id())->first();
+        return view('profilPage.index', compact('karyawan'));
     }
 }

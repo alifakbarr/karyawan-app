@@ -42,6 +42,34 @@
                     <td>{!! $userTask->keterangan ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
                 </tr>
                 <tr class="bg-primary text-white">
+                    <th class="text-center ">Status</th>
+                </tr>
+                <tr>
+                    <td>
+                        @if ($userTask->progress === 'proses')
+                        <div class=" text-center ">
+                            <button disabled="disabled" class="fw-bold bg-warning rounded text-white">{{ ucwords($userTask->progress) }}</button>
+                        </div>
+                        @elseif($userTask->progress === 'check')
+                        <div class="text-center">
+                            <button disabled="disabled" class="fw-bold bg-primary rounded text-white">{{ ucwords($userTask->progress) }}</button>
+                        </div>
+                        @elseif($userTask->progress === 'selesai')
+                        <div class="text-center">
+                            <button disabled="disabled" class="w-bold bg-secondary rounded text-white">{{ ucwords($userTask->progress) }}</button>
+                        </div>
+                        @elseif($userTask->progress === 'revisi')
+                        <div class="text-center">
+                            <button disabled="disabled" class="w-bold bg-success rounded text-white">{{ ucwords($userTask->progress) }}</button>
+                        </div>
+                        @elseif($userTask->progress === 'gagal')
+                        <div class="text-center">
+                            <button disabled="disabled" class="w-bold bg-danger rounded text-white">{{ ucwords($userTask->progress) }}</button>
+                        </div>
+                        @endif
+                    </td>
+                </tr>
+                <tr class="bg-primary text-white">
                     <th class="text-center ">Option</th>
                 </tr>
                 <tr>

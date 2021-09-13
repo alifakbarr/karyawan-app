@@ -32,8 +32,12 @@
                     <div class="bg-secondary text-center rounded text-white">
                         {{ ucwords($tsk->progress) }}
                     </div>
-                    @elseif($tsk->progress === 'revisi')
+                    @elseif($tsk->progress === 'selesai')
                     <div class="bg-success text-center rounded text-white">
+                        {{ ucwords($tsk->progress) }}
+                    </div>
+                    @elseif($tsk->progress === 'gagal')
+                    <div class="bg-gagal text-center rounded text-white">
                         {{ ucwords($tsk->progress) }}
                     </div>
                     @endif

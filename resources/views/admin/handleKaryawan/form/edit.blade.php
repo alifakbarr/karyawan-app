@@ -47,7 +47,7 @@
                     </td>
                 </tr>
                 <tr class="bg-primary text-white">
-                    <th class="text-center ">Option</th>
+                    <th class="text-center ">Status</th>
                 </tr>
                 <tr>
                     <td class="text-center p-2">

@@ -26,7 +26,7 @@
             <div class="d-flex justify-content-center">
               <a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">
                 <span class="bg-secondary rounded p-1 fw-bold text-white">
-                  {{ $task->user_tasks->count() > 0 ? 'Sudah' : 'Belum' }}
+                  {{ $task->user_tasks->count() > 0 ? 'Sudah diambil' : 'Belum diambil' }}
                 </span>
               </a>
             </div>

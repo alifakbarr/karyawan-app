@@ -52,6 +52,7 @@ class HandleKaryawanController extends Controller
     public function show($id)
     {
         $karyawanId = Karyawan::where('user_id',$id)->first();
+
         $user_task_proses = UserTask::where('user_id', $karyawanId->user_id)->where('progress','proses')->get();
         $user_task_check = UserTask::where('user_id', $karyawanId->user_id)->where('progress','check')->get();
         $user_task_revisi = UserTask::where('user_id', $karyawanId->user_id)->where('progress','revisi')->get();
@@ -59,8 +60,12 @@ class HandleKaryawanController extends Controller
         $user_task_gagal = UserTask::where('user_id', $karyawanId->user_id)->where('progress','gagal')->get();
 
         $karyawan = Karyawan::where('user_id',$id)->first();
+
+        // hitung
+        $jumlah = (count($user_task_selesai)+count($user_task_gagal));
+        $hitung = (count($user_task_selesai) / $jumlah)*100;
         return view('admin/handleKaryawan/show',
-         compact('karyawan', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal'));
+         compact('karyawan', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal','hitung'));
     }
 
     public function showTaskProses($id){
