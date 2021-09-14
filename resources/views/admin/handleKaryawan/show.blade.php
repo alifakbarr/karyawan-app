@@ -1,6 +1,9 @@
 @extends('admin.layout.template')
 @section('title', 'Detail Karyawan')
 @section('content')
+<div class="d-flex justify-content-end">
+  <a href="{{ route('handleKaryawan.editRole', $karyawan->id) }}" class="btn btn-sm btn-primary">Edit Role</a>
+</div>
 <div class="table-responsive">
     <h2 class="text-center mb-3">Biodata Karyawan</h2>
     <table class="table table-sm mt-3">
@@ -8,6 +11,10 @@
           <tr>
             <th scope="row">Foto</th>
             <td><img src="{{ asset('storage/'.$karyawan->foto) }}" alt="" class="img-fluid profile"></td>
+          </tr>
+          <tr>
+            <th scope="row">Status</th>
+            <td>{{ ucwords($user->name) }}</td>
           </tr>
           <tr>
             <th scope="row">Tanggal Gabung</th>

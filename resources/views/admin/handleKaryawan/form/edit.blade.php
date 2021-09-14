@@ -56,7 +56,6 @@
                             @foreach ($progress as $prog)
                             <option value="{{ $prog }}" {{ $prog == $userTask->progress ? 'selected' : '' }} >{{ ucwords($prog) }}</option>
                             @endforeach
-
                           </select>  
                     </td>
                 </tr>

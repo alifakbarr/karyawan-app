@@ -53,6 +53,10 @@ class User extends Authenticatable
     public function UserTask(){
         return $this->hasMany(User_task::class);
     }
+
+    public function role(){
+        return $this->belongsTo(Roles::class);
+    }
     // // relasi
     // public function tugas(){
     //     return $this->BelongsToMany(User::class, 'user_task', 'user_id','task_id')->withTimestamps();

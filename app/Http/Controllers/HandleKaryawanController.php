@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Karyawan;
+use App\Models\Roles;
 use App\Models\User;
 use App\Models\UserTask;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HandleKaryawanController extends Controller
 {
@@ -52,6 +54,8 @@ class HandleKaryawanController extends Controller
     public function show($id)
     {
         $karyawanId = Karyawan::where('user_id',$id)->first();
+        $roleId = DB::table('model_has_roles')->where('model_id',$id)->first();
+        $user = DB::table('roles')->where('id',$roleId->role_id)->first();
 
         $user_task_proses = UserTask::where('user_id', $karyawanId->user_id)->where('progress','proses')->get();
         $user_task_check = UserTask::where('user_id', $karyawanId->user_id)->where('progress','check')->get();
@@ -63,9 +67,10 @@ class HandleKaryawanController extends Controller
 
         // hitung
         $jumlah = (count($user_task_selesai)+count($user_task_gagal));
-        $hitung = (count($user_task_selesai) / $jumlah)*100;
+        $hitung = 0;
+        if ($jumlah > 0) $hitung = (count($user_task_selesai) / $jumlah)*100;
         return view('admin/handleKaryawan/show',
-         compact('karyawan', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal','hitung'));
+         compact('user','karyawan', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal','hitung'));
     }
 
     public function showTaskProses($id){
@@ -142,6 +147,16 @@ class HandleKaryawanController extends Controller
 
         $userTask->update($data);
         return redirect()->back();
+
+    }
+    
+    public function editRole($id){
+        $roles = ['admin','headOf', 'user'];
+        $karyawan = Karyawan::where('id',$id)->first();
+        return view('admin/handleKaryawan/Role/edit', compact('karyawan','roles'));
+    }
+
+    public function updateRole(){
 
     }
 

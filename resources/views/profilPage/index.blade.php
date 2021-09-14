@@ -21,6 +21,10 @@
             <td><img src="{{ asset('storage/'.$karyawan->foto) }}" alt="" class="img-fluid profile"></td>
           </tr>
           <tr>
+            <th scope="row">Status</th>
+            <td>{{ ucwords(Auth::user()->roles->first()->name) }}</td>
+          </tr>
+          <tr>
             <th scope="row">NIP</th>
             <td>{{ $karyawan->nip }}</td>
           </tr>
@@ -43,7 +47,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row">TTanggal Lahir</th>
+            <th scope="row">Tanggal Lahir</th>
             <td> {{ date('d-M-Y', strtotime($karyawan->tanggal_lahir))}}<td>
           </tr>
           <tr>
@@ -63,6 +67,7 @@
             <td>{{ ucwords($karyawan->alamat) }}</td>
           </tr>
         </tbody>
+        
       </table>
       <div class="d-flex justify-content-end">
           <a href="{{ route('karyawan.edit', $karyawan->id) }}" class="btn btn-sm btn-primary">Perbarui</a>

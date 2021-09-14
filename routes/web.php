@@ -49,9 +49,11 @@ Route::group(['middleware' => ['role:admin|headOf|user']], function () {
 
 
 
-Route::group(['middleware' => ['role:headOf']], function () {
+Route::group(['middleware' => ['role:headOf|admin']], function () {
     // manage handle karyawan
     Route::resource('handleKaryawan', HandleKaryawanController::class);
+    Route::get('/handleKaryawan/editRole/{Karyawan:id}',[HandleKaryawanController::class, 'editRole'])->name('handleKaryawan.editRole');
+    Route::get('/handleKaryawan/updateRole/',[HandleKaryawanController::class, 'updateRole'])->name('handleKaryawan.updateRole');
     Route::get('/handleKaryawan/showTaskProses/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskProses'])->name('handleKaryawan.showTaskProses');
     Route::get('/handleKaryawan/showTaskCheck/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskCheck'])->name('handleKaryawan.showTaskCheck');
     Route::get('/handleKaryawan/showTaskRevisi/{UserTask:user_id}',[HandleKaryawanController::class, 'showTaskRevisi'])->name('handleKaryawan.showTaskRevisi');
