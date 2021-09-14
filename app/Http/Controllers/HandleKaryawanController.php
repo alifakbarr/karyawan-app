@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Karyawan;
+use App\Models\ModelHasRoles;
 use App\Models\Roles;
 use App\Models\User;
 use App\Models\UserTask;
@@ -151,13 +152,21 @@ class HandleKaryawanController extends Controller
     }
     
     public function editRole($id){
-        $roles = ['admin','headOf', 'user'];
         $karyawan = Karyawan::where('id',$id)->first();
-        return view('admin/handleKaryawan/Role/edit', compact('karyawan','roles'));
+        $roleId = DB::table('model_has_roles')->where('model_id',$karyawan->user_id)->first();
+        $user = DB::table('roles')->where('id',$roleId->role_id)->first();
+        $roles = ['1','2','3'];
+        return view('admin/handleKaryawan/Role/edit', compact('karyawan','roles','user','roleId'));
     }
 
-    public function updateRole(){
+    public function updateRole(Request $request, $id){
+        $role = ModelHasRoles::where('model_id',$id)->update([
+            'role_id' =>$request->role_id
+        ]);
 
+        // $role = DB::table('model_has_roles')->where('model_id',$id)
+
+        return redirect()->back();
     }
 
     /**
