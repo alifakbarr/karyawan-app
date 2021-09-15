@@ -43,7 +43,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row">TTanggal Lahir</th>
+            <th scope="row">Tanggal Lahir</th>
             <td> {{ date('d-M-Y', strtotime($karyawan->tanggal_lahir))}}<td>
           </tr>
           <tr>
@@ -62,10 +62,17 @@
             <th scope="row">Alamat</th>
             <td>{{ ucwords($karyawan->alamat) }}</td>
           </tr>
+          <tr>
+            <th scope="row">Gabung</th>
+            <td>{{ date('d-M-Y', strtotime($karyawan->created_at)); }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Nilai</th>
+            <td>{{ $hitung ?? 'Tidak ada' }}</td>
+          </tr>
         </tbody>
     </table>
 </div>
-{{ $hitung ?? 'Tidak ada' }}
 <div class="table-responsive">
   <table class="table">
     <thead>

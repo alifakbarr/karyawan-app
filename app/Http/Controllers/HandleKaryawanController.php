@@ -21,7 +21,7 @@ class HandleKaryawanController extends Controller
      */
     public function index()
     {
-        $karyawans = Karyawan::paginate(50);
+        $karyawans = Karyawan::paginate(20);
         return view('admin/handleKaryawan/index', compact('karyawans'));
     }
 
@@ -175,8 +175,15 @@ class HandleKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Karyawan $karyawan)
     {
-        //
+        \Storage::delete($karyawan->foto);
+        $user = User::where('id',$karyawan->user_id)->first();
+        $user->delete();
+
+        $karyawan->delete();
+
+        return redirect()->route('handleKaryawan.index');
+        // $kar = Karyawan::find($id);
     }
 }
