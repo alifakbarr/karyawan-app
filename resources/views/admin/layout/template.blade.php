@@ -31,10 +31,22 @@
           <i class="hamburger align-self-center"></i>
         </a>
 
-				<form class="d-none d-sm-inline-block">
+		 @php
+			$role = Auth::user()->roles->first()->name;
+		 @endphp
+				<form class="d-none d-sm-inline-block" method="get" action="
+				@if ($role === 'admin')
+					{{ route('cari.cariAdmin') }}
+				@elseIf($role === 'headOf')
+					{{ route('cari.cariHeadOf') }}
+				@elseIf($role === 'user')
+					{{ route('cari.cariUser') }}
+				@endif
+				 ">
+					@csrf
 					<div class="input-group input-group-navbar">
-						<input type="text" class="form-control" placeholder="Search…" aria-label="Search">
-						<button class="btn" type="button">
+						<input type="text" class="form-control" placeholder="Search…" aria-label="Search" name="cari">
+						<button class="btn" type="submit">
               <i class="align-middle" data-feather="search"></i>
             </button>
 					</div>

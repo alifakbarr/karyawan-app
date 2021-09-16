@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\CariController;
 use App\Http\Controllers\HandleKaryawanController;
 use App\Http\Controllers\HeadOfPageController;
 use App\Http\Controllers\JobController;
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['role:admin']], function () {
+    // manage cari
+    Route::get('/cari/admin',[CariController::class, 'cariAdmin'])->name('cari.cariAdmin');
+
     // manage handle karyawan
     Route::resource('handleKaryawan', HandleKaryawanController::class);
     // manage job
@@ -50,6 +54,7 @@ Route::group(['middleware' => ['role:admin|headOf|user']], function () {
 
 
 Route::group(['middleware' => ['role:headOf|admin']], function () {
+    Route::get('/cari/headOf',[CariController::class, 'cariHeadOf'])->name('cari.cariHeadOf');
     // manage task
     Route::resource('task', TaskController::class);
     // manage handle karyawan
@@ -73,6 +78,8 @@ Route::group(['middleware' => ['role:headOf|admin']], function () {
 });
 
 Route::group(['middleware' => ['role:user']], function () {
+    Route::get('/cari/user',[CariController::class, 'cariUser'])->name('cari.cariUser');
+
     // manage User Page
     // Route::resource('userPage', UserPageController::class);
 
