@@ -26,7 +26,7 @@
               <a href="{{ route('taskKaryawan.show', $task->id) }}" class="text-decoration-none text-dark">
                 <span class="bg-secondary rounded p-1 fw-bold text-white">
                   {{-- mengecek apakah sudah ada di table user_task --}}
-                  {{ $task->user_tasks->count() > 0 ? 'Sudah' : 'Belum' }}
+                  {{ $task->user_tasks->count() > 0 ? 'Telah Diambil' : 'Belum Diambil' }}
                 </span>
               </a>
             </div>

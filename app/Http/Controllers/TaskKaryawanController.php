@@ -103,15 +103,11 @@ class TaskKaryawanController extends Controller
             $data = $request->all();
             $data['progress'] = 'check';
             $user_task->update($data);
-        }else{
-            $data = $request->all();
-            $data['progress'] = 'check';
-            $user_task->update($data);
-        };
+        }
         // $data = $request->all();
         // $user_task->update($data);
 
-        return redirect()->route('taskKaryawan.index');
+        return redirect()->route('taskKaryawan.myTask',$user_task->user_id);
     }
 
     /**

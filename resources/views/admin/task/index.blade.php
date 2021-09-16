@@ -20,8 +20,8 @@
         @foreach ($tasks as $task)
         <tr>
           <th scope="row">{{ $no++ }}</th>
-          <td><a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">{{ $task->judul }}</a></td>
-          <td><a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">{{ date('d-M-Y', strtotime($task->start));}} Sampai {{ date('d-M-Y', strtotime($task->deadLine));}}</a></td>
+          <td class="text-center"><a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">{{ $task->judul }}</a></td>
+          <td class="text-center"><a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">{{ date('d-M-Y', strtotime($task->start));}} / {{ date('d-M-Y', strtotime($task->deadLine));}}</a></td>
           <td>
             <div class="d-flex justify-content-center">
               <a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">

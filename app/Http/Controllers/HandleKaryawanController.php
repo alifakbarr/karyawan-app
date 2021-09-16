@@ -123,7 +123,9 @@ class HandleKaryawanController extends Controller
     public function showTaskKaryawan($id){
         $userTask = UserTask::where('id',$id)->first();
         $karyawan = Karyawan::where('user_id',$userTask->user_id)->first();
-        return view('admin/handleKaryawan/detail/showTaskKaryawan', compact('userTask', 'karyawan'));
+        $roleId = DB::table('model_has_roles')->where('model_id',$karyawan->user_id)->first();
+        $user = DB::table('roles')->where('id',$roleId->role_id)->first();
+        return view('admin/handleKaryawan/detail/showTaskKaryawan', compact('userTask', 'karyawan','user'));
     }
 
     public function edit($id)
@@ -144,10 +146,13 @@ class HandleKaryawanController extends Controller
     public function update(Request $request, $id)
     {
         $userTask = UserTask::find($id);
+        
         $data = $request->all();
-
+        if($data['progress']==='Pilih Hasil'){
+            $data['progress'] = $userTask->progress;
+        }
         $userTask->update($data);
-        return redirect()->back();
+        return redirect()->route('handleKaryawan.showTaskKaryawan',$userTask->user_id);
 
     }
     

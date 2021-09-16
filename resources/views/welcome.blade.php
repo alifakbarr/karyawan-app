@@ -41,7 +41,7 @@
                 <div class="d-flex justify-content-start mt-5 align-items-center">
                     <img src="{{ asset('icon/building.svg') }}" alt="" width="20%">
                     <div class="text-primary fs-1">
-                        <p>Sistem Informasi<br>Karyawan-App</p>
+                        <p>Sistem Informasi<br>Karyawan-App <br>PT. Gema Solusindo Utama</p>
 
                     </div>
                 </div>

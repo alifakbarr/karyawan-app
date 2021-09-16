@@ -6,8 +6,8 @@
 <form action="{{ route('taskKaryawan.update',$user_task->id) }}" method="POST">
     @csrf
     @method('patch')
-    <div class="mt-3">
-        <label for="alur" class="form-label bg-info  rounded p-1">Progres Alur</label>
+    <div class="mt-2">
+        <label for="alur" class="form-label rounded p-1 fw-bold">Progres Alur</label>
         <textarea class="form-control" name="alur" id="editor" rows="6" placeholder="Progres alur">{{ old('alur')?? $user_task->alur }}</textarea>
     </div>
     @error('alur')

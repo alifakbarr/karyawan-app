@@ -17,8 +17,8 @@
             @foreach ($user_task as $tsk)                
             <tr>
                 <td scope="row">{{ $no++ }}</td>
-                <td><a href="{{ route('taskKaryawan.showMyTask',$tsk->task->id) }}">{{ $tsk->task->judul }}</a></td>
-                <td>{{ date('d-M-Y', strtotime($tsk->task->start));}} Sampai {{ date('d-M-Y', strtotime($tsk->task->deadLine)); }}</td>
+                <td><a href="{{ route('taskKaryawan.showMyTask',$tsk->task->id) }}" class="text-decoration-none">{{ ucwords($tsk->task->judul) }}</a></td>
+                <td>{{ date('d-M-Y', strtotime($tsk->task->start));}} / {{ date('d-M-Y', strtotime($tsk->task->deadLine)); }}</td>
                 <td>
                     @if ($tsk->progress === 'proses')
                     <div class="bg-warning text-center rounded">

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
 use App\Models\Task;
+use App\Models\UserTask;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -65,7 +67,9 @@ class TaskController extends Controller
     public function show($id)
     {
         $task = Task::where('id',$id)->first();
-        return view('admin/task/show', compact('task'));
+        $userTask = UserTask::where('task_id',$task->id)->first();
+        $karyawan = Karyawan::where('user_id',$userTask->user_id)->first();
+        return view('admin/task/show', compact('task','karyawan'));
     }
 
     /**

@@ -19,8 +19,8 @@
                 <th class="text-center">Waktu</th>
             </tr>
             <tr>
-                <td class="text-center fw-bold">
-                    <span class="bg-success p-1 rounded">{{ date('d-M-Y', strtotime($task->start));}}</span> Sampai <span class="bg-danger p-1 rounded">{{ date('d-M-Y', strtotime($task->deadLine)); }}</span></td>
+                <td class="text-center ">
+                   <b>{{ date('d-M-Y', strtotime($task->start));}}</b> Sampai <b>{{ date('d-M-Y', strtotime($task->deadLine)); }}</b></td>
             </tr>
             <tr class="bg-primary text-white">
                 <th class="text-center ">Deskripsi</th>

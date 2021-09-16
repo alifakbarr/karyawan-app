@@ -50,6 +50,8 @@ Route::group(['middleware' => ['role:admin|headOf|user']], function () {
 
 
 Route::group(['middleware' => ['role:headOf|admin']], function () {
+    // manage task
+    Route::resource('task', TaskController::class);
     // manage handle karyawan
     Route::resource('handleKaryawan', HandleKaryawanController::class);
     Route::get('/handleKaryawan/editRole/{Karyawan:id}',[HandleKaryawanController::class, 'editRole'])->name('handleKaryawan.editRole');

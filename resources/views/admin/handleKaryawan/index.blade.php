@@ -1,5 +1,7 @@
 @extends('admin.layout.template')
-@section('title', 'Admin')
+@section('title')
+    {{ Auth::user()->name }}
+@endsection
 @section('content')
 <div class="table-responsive">
     <table class="table table-hover table-sm">
