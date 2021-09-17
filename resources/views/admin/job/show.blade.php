@@ -12,17 +12,15 @@
     </div>
     <table class="table table-bordered ">
         <tbody>
-            <tr class="bg-primary text-white">
-                <th class="text-center">Nama Pekerjaan</th>
-            </tr>
-            <tr>
+            <tr class="">
+                <th class="text-center bg-primary text-white">Nama Pekerjaan</th>
                 <td class="text-center fw-bold">{{ ucwords($job->nama) }}</td>
             </tr>
             <tr class="bg-primary text-white">
-                <th class="text-center ">Deskripsi</th>
+                <th colspan="2" class="text-center ">Deskripsi</th>
             </tr>
             <tr>
-                <td>{!! $job->keterangan !!}</td>
+                <td colspan="2" >{!! $job->keterangan !!}</td>
             </tr>
         </tbody>
       </table>

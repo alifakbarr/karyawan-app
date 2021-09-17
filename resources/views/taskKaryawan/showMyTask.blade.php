@@ -9,41 +9,36 @@
     </div>
     <table class="table table-bordered ">
         <tbody>
-            <tr class="bg-primary text-white">
-                <th class="text-center">Task</th>
-            </tr>
             <tr>
+                <th class="text-center bg-primary text-white">Task</th>
                 <td class="text-center fw-bold">{{ ucwords($task->judul) }}</td>
             </tr>
-            <tr class="bg-primary text-white">
-                <th class="text-center">Waktu</th>
-            </tr>
-            <tr>
+            <tr class="">
+                <th class="text-center bg-primary text-white">Waktu</th>
                 <td class="text-center ">
-                   <b>{{ date('d-M-Y', strtotime($task->start));}}</b> Sampai <b>{{ date('d-M-Y', strtotime($task->deadLine)); }}</b></td>
+                    <b>{{ date('d-M-Y', strtotime($task->start));}}</b> / <b>{{ date('d-M-Y', strtotime($task->deadLine)); }}</b>
+                </td>
             </tr>
-            <tr class="bg-primary text-white">
-                <th class="text-center ">Deskripsi</th>
-            </tr>
-            <tr>
-                <td>{!! $task->keterangan !!}</td>
-            </tr>
-            <tr class="bg-primary text-white">
-                <th class="text-center ">Progres alur yang sudah di kerjakan</th>
+            <tr class="">
+                <th class="bg-primary text-white text-center" colspan="2">Deskripsi</th>
             </tr>
             <tr>
-                <td>{!! $user_task_id->alur ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
+                <td colspan="2">{!! $task->keterangan !!}</td>
             </tr>
-            <tr class="bg-primary text-white">
-                <th class="text-center ">Catatan</th>
-            </tr>
-            <tr>
-                <td>{!! $user_task_id->keterangan ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
-            </tr>
-            <tr class="bg-primary text-white">
-                <th class="text-center ">Option</th>
+            <tr class="">
+                <th colspan="2" class="text-center bg-primary text-white">Alur Selesai</th>
             </tr>
             <tr>
+                <td colspan="2" >{!! $user_task_id->alur ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
+            </tr>
+            <tr class="">
+                <th class="text-center bg-primary text-white" colspan="2">Catatan</th>
+            </tr>
+            <tr>
+                <td colspan="2">{!! $user_task_id->keterangan ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
+            </tr>
+            <tr class="">
+                <th class="text-center bg-primary text-white ">Option</th>
                 <td class="text-center">
                     <span>Check project sekarang?</span>
                     <br>

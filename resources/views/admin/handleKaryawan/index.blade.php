@@ -5,7 +5,7 @@
 @section('content')
 <div class="table-responsive">
     <table class="table table-hover table-sm">
-        <thead  class="bg-primary text-white">
+        <thead  class="bg-primary text-white text-center">
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
@@ -13,12 +13,12 @@
             <th scope="col">Opsi</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
         @php ($no = 1)
         @foreach ($karyawans as $karyawan)            
         <tr>
           <th scope="row">{{ $no++ }}</th>
-          <td><a href="{{ route('handleKaryawan.show', $karyawan->user_id) }}" class="text-decoration-none text-dark">{{ $karyawan->nama }}</a></td>
+          <td><a href="{{ route('handleKaryawan.show', $karyawan->user_id) }}" class="text-decoration-none text-dark">{{ ucwords($karyawan->nama) }}</a></td>
           <td>{{ $karyawan->Job->nama ?? 'Belum memilih' }}</td>
           <td>
             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $karyawan->id }}">

@@ -6,7 +6,7 @@
     
     <div class="table-responsive">
         <table class="table table-hover table-bordered ">
-            <thead class="">
+            <thead class="text-center">
               <tr class=" bg-primary text-white">
                 <th scope="col">No</th>
                 <th scope="col">Task</th>
@@ -14,7 +14,7 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
             @php ($no = 1)
             @foreach ($userTask as $task)
             <tr>

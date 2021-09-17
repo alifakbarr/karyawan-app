@@ -12,41 +12,36 @@
         @endif
         <table class="table table-bordered ">
             <tbody>
-                <tr class="bg-primary text-white">
-                    <th class="text-center">Task</th>
-                </tr>
-                <tr>
+                <tr class="">
+                    <th class="text-center bg-primary text-white">Task</th>
                     <td class="text-center fw-bold">{{ ucwords($userTask->task->judul) }}</td>
                 </tr>
-                <tr class="bg-primary text-white">
-                    <th class="text-center">Waktu</th>
-                </tr>
-                <tr>
+                <tr class="">
+                    <th class="text-center bg-primary text-white">Waktu</th>
                     <td class="text-center fw-bold">
-                        <b>{{ date('d-M-Y', strtotime($userTask->task->start));}}</b> Sampai <b>{{ date('d-M-Y', strtotime($userTask->task->deadLine)); }}</b></td>
+                        <b>{{ date('d-M-Y', strtotime($userTask->task->start));}}</b> / <b>{{ date('d-M-Y', strtotime($userTask->task->deadLine)); }}</b>
+                    </td>
                 </tr>
                 <tr class="bg-primary text-white">
-                    <th class="text-center ">Deskripsi</th>
+                    <th class="text-center " colspan="2">Deskripsi</th>
                 </tr>
                 <tr>
-                    <td>{!! $userTask->task->keterangan !!}</td>
+                    <td colspan="2">{!! $userTask->task->keterangan !!}</td>
                 </tr>
                 <tr class="bg-primary text-white">
-                    <th class="text-center ">Progres alur yang sudah di kerjakan</th>
+                    <th class="text-center " colspan="2">Alur Yang Selesai</th>
                 </tr>
                 <tr>
-                    <td>{!! $userTask->alur ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
+                    <td colspan="2">{!! $userTask->alur ?? '<p class="text-center">Alur belum dibuat</p>' !!}</td>
                 </tr>
                 <tr class="bg-primary text-white">
-                    <th class="text-center ">Catatan</th>
+                    <th colspan="2" class="text-center ">Catatan</th>
                 </tr>
                 <tr>
-                    <td>{!! $userTask->keterangan ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
+                    <td colspan="2">{!! $userTask->keterangan ?? '<p class="text-center">Tidak ada catatan</p>' !!}</td>
                 </tr>
-                <tr class="bg-primary text-white">
-                    <th class="text-center ">Status</th>
-                </tr>
-                <tr>
+                <tr class="">
+                    <th class="text-center bg-primary text-white">Status</th>
                     <td>
                         @if ($userTask->progress === 'proses')
                         <div class=" text-center ">
@@ -71,10 +66,8 @@
                         @endif
                     </td>
                 </tr>
-                <tr class="bg-primary text-white">
-                    <th class="text-center ">Option</th>
-                </tr>
-                <tr>
+                <tr class="">
+                    <th class="text-center bg-primary text-white">Option</th>
                     <td class="text-center">
                         <span>Edit catatan ?</span>
                         <br>

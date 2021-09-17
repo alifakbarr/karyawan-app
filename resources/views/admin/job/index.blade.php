@@ -8,14 +8,14 @@
 </div>
 <div class="table-responsive">
     <table class="table table-hover table-bordered ">
-        <thead class="">
+        <thead class="text-center">
           <tr class=" bg-primary text-white">
             <th scope="col">No</th>
             <th scope="col">Job</th>
             <th scope="col">Option</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
           @php ($no = 1)
           @foreach ($jobs as $job)              
           <tr>

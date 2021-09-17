@@ -75,14 +75,14 @@
 </div>
 <div class="table-responsive">
   <table class="table">
-    <thead>
+    <thead class="text-center">
       <tr class="bg-light">
         <th scope="col">Project</th>
         <th scope="col">Jumlah</th>
         <th scope="col">Opsi</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="text-center">
       <tr>
         <th scope="row" class="bg-warning">Proses</th>
         <th>{{ $user_task_proses->count() }}</th>
