@@ -3,7 +3,7 @@
 @section('content')
 <div class="table-responsive">
     <table class="table">
-        <thead>
+        <thead class="text-center">
             <tr>
             <th scope="col">No</th>
             <th scope="col">Task</th>
@@ -13,7 +13,7 @@
             </tr>
         </thead>
         @php ($no = 1)
-        <tbody>
+        <tbody class="text-center">
             @foreach ($user_task as $tsk)                
             <tr>
                 <td scope="row">{{ $no++ }}</td>
@@ -37,7 +37,7 @@
                         {{ ucwords($tsk->progress) }}
                     </div>
                     @elseif($tsk->progress === 'gagal')
-                    <div class="bg-gagal text-center rounded text-white">
+                    <div class="bg-danger text-center rounded text-white">
                         {{ ucwords($tsk->progress) }}
                     </div>
                     @endif

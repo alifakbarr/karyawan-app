@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Task;
+use App\Models\UserTask;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -30,5 +32,19 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('id');
         date_default_timezone_set('Asia/Jakarta');
         PaginationPaginator::useBootstrap();
+        
+        // $thisTime = Carbon::now();
+        // $today = date('Y-m-d', strtotime($thisTime));
+        // $tasks = Task::whereDate('deadLine','<',$today)->get()&& userTask::where('progress','selesai')->get();
+        // // $userTask = userTask::where('progress','selesai')->get();
+        // if($tasks){
+        //     function update(){
+                
+        //     }
+        //     update();
+        // }else{
+        //     dd('gagal');
+        // }
+        // dd($userTask);
     }
 }
