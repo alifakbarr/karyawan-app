@@ -22,6 +22,9 @@ class TaskKaryawanController extends Controller
         $tasks = Task::doesntHave('user_tasks')
         ->with(['user_tasks'])
             ->paginate(20);
+
+        // $tasks = UserTask::get();
+        // dd($tasks);
         return view('taskKaryawan/index', compact('tasks'));
     }
 

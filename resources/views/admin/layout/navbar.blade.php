@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar">
   <div class="sidebar-content js-simplebar">
     <a class="sidebar-brand" href="index.html">
-      <span class="align-middle">Karyawan-App</span>
+      <span class="align-middle">SI Penakar</span>
     </a>
 
     <ul class="sidebar-nav">
@@ -52,8 +52,13 @@
           <i class="align-middle" data-feather="user"></i> <span class="align-middle">My Profile</span>
         </a>
       </li>
+      <li class="sidebar-item {{ request()->is('taskKaryawan/myTask')? 'active':'' }}">
+        <a class="sidebar-link" href="{{ route('taskKaryawan.myTask',Auth::user()->id) }}">
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Tasks</span>
+        </a>
+      </li>
       <li class="sidebar-item {{ request()->is('taskKaryawan')? 'active':'' }}">
-        <a class="sidebar-link" href="{{ route('taskKaryawan.index') }}">
+        <a class="sidebar-link" href="{{ route('taskKaryawan.index',Auth::user()->id) }}">
           <i class="align-middle" data-feather="target"></i> <span class="align-middle">Tasks</span>
         </a>
       </li>

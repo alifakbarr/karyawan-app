@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Karyawan-App</title>
+        <title>SI Penakar</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ">
                     @auth
                         <a href="{{ url('/home') }}" class="text-md text-gray-700 underline">Home</a>
                     @else
@@ -39,9 +39,9 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="d-flex justify-content-start mt-5 align-items-center">
-                    <img src="{{ asset('icon/building.svg') }}" alt="" width="20%">
+                    <img src="{{ asset('icon/balance.png') }}" alt="" width="20%" class="me-4">
                     <div class="text-primary fs-1">
-                        <p>Sistem Informasi<br>Karyawan-App <br>PT. Gema Solusindo Utama</p>
+                        <p>Sistem Informasi<br>Penilaian Karyawan</p>
 
                     </div>
                 </div>
@@ -58,7 +58,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Sistem Informasi Karyawan-App ini di buat untu PT. Gema Solusindo Utama, Untuk membantu penilaian karyawan dari segi
+                                    Sistem Informasi Penilaian Karyawan ini di buat perusahaan pengembang aplikasi untuk membantu penilaian karyawan dari segi
                                     jumlah project yang dikerjakan. Dengan cara semudah dan se-efektif mungkin.
                                 </div>
                             </div>

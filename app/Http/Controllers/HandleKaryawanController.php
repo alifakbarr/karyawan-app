@@ -21,7 +21,7 @@ class HandleKaryawanController extends Controller
      */
     public function index()
     {
-        $karyawans = Karyawan::paginate(20);
+        $karyawans = Karyawan::paginate(20);   
         return view('admin/handleKaryawan/index', compact('karyawans'));
     }
 
@@ -64,14 +64,14 @@ class HandleKaryawanController extends Controller
         $user_task_selesai = UserTask::where('user_id', $karyawanId->user_id)->where('progress','selesai')->get();
         $user_task_gagal = UserTask::where('user_id', $karyawanId->user_id)->where('progress','gagal')->get();
 
-        $karyawan = Karyawan::where('user_id',$id)->first();
-
+        // $karyawan = Karyawan::where('user_id',$id)->first();
+        
         // hitung
         $jumlah = (count($user_task_selesai)+count($user_task_gagal));
         $hitung = 0;
         if ($jumlah > 0) $hitung = (count($user_task_selesai) / $jumlah)*100;
         return view('admin/handleKaryawan/show',
-         compact('user','karyawan', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal','hitung'));
+         compact('user', 'karyawanId', 'user_task_proses', 'user_task_check', 'user_task_revisi', 'user_task_selesai', 'user_task_gagal','hitung'));
     }
 
     public function showTaskProses($id){
@@ -122,6 +122,8 @@ class HandleKaryawanController extends Controller
 
     public function showTaskKaryawan($id){
         $userTask = UserTask::where('id',$id)->first();
+        $userId = UserTask::where('user_id',$id)->first();
+        // dd($userTask);
         $karyawan = Karyawan::where('user_id',$userTask->user_id)->first();
         $roleId = DB::table('model_has_roles')->where('model_id',$karyawan->user_id)->first();
         $user = DB::table('roles')->where('id',$roleId->role_id)->first();
@@ -152,7 +154,8 @@ class HandleKaryawanController extends Controller
             $data['progress'] = $userTask->progress;
         }
         $userTask->update($data);
-        return redirect()->route('handleKaryawan.showTaskKaryawan',$userTask->user_id);
+        // return redirect()->route('handleKaryawan.showTaskKaryawan',$userTask->user_id);
+        return redirect()->back();
 
     }
     

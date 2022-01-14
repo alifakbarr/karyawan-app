@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Add task')
+@section('title', 'Add Proyek')
 @section('content')
     <form action="{{ route('task.store') }}" method="post">
         @csrf

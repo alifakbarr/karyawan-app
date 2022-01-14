@@ -25,11 +25,11 @@
                         {{ ucwords($tsk->progress) }}
                     </div>
                     @elseif($tsk->progress === 'check')
-                    <div class="bg-primary text-center rounded text-white">
-                        {{ ucwords($tsk->progress) }}
+                    <div class="bg-secondary text-center rounded text-white">
+                        Verifikasi
                     </div>
                     @elseif($tsk->progress === 'revisi')
-                    <div class="bg-secondary text-center rounded text-white">
+                    <div class="bg-danger text-center rounded text-white">
                         {{ ucwords($tsk->progress) }}
                     </div>
                     @elseif($tsk->progress === 'selesai')

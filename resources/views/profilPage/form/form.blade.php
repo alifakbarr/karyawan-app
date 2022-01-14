@@ -8,7 +8,7 @@
     @enderror --}}
   </div>
   <p class="form-label">Masukkan bagian</p>
-  <div class="d-flex justify-content-evenly">
+  <div class="d-flex justify-content-evenly flex-wrap">
   @foreach ($jobs as $job)
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="job" id="{{ $job->id }}" value="{{ $job->id }}" required
