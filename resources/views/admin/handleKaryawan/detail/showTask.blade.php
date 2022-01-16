@@ -20,7 +20,7 @@
             <tr>
               <th scope="row">{{ $no++ }}</th>
               <td><a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">{{ $task->task->judul }}</a></td>
-              <td><a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">{{ date('d-M-Y', strtotime($task->task->start));}} Sampai {{ date('d-M-Y', strtotime($task->task->deadLine));}}</a></td>
+              <td><a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">{{ date('d-M-Y', strtotime($task->task->start));}} / {{ date('d-M-Y', strtotime($task->task->deadLine));}}</a></td>
               <td>
                 <div class="d-flex justify-content-center">
                   <a href="{{ route('handleKaryawan.showTaskKaryawan', $task->id) }}" class="text-decoration-none text-dark">
@@ -29,8 +29,8 @@
                         {{ ucwords($task->progress) }}
                     </div>
                     @elseif($task->progress === 'check')
-                    <div class="bg-primary text-center rounded text-white p-1 fw-bold">
-                        {{ ucwords($task->progress) }}
+                    <div class="bg-secondary text-center rounded text-white p-1 fw-bold">
+                        Verifikasi
                     </div>
                     @elseif($task->progress === 'selesai')
                     <div class="bg-secondary text-center rounded text-white p-1 fw-bold">

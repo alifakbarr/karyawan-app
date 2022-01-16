@@ -41,7 +41,7 @@
                 <div class="d-flex justify-content-start mt-5 align-items-center">
                     <img src="{{ asset('icon/balance.png') }}" alt="" width="20%" class="me-4">
                     <div class="text-primary fs-1">
-                        <p>Sistem Informasi<br>Penilaian Karyawan</p>
+                        <p><b>SI Penakar</b><br>Sistem Infromasi Penilaian Karyawan Berdasarkan Proyek</p>
 
                     </div>
                 </div>

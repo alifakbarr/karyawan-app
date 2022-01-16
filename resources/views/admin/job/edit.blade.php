@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title','Edit Job')
+@section('title','Edit Jabatan')
 @section('content')
 <form action="{{ route('job.update',$job->id) }}" method="post">
     @csrf

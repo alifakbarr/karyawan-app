@@ -13,9 +13,13 @@
 </div>
 @else
 <div class="table-responsive">
-    <h2 class="text-center mb-3">Biodata Karyawan</h2>
-    <table class="table table-sm mt-3">
+    <table class="table table-sm mt-3 table-bordered">
         <tbody>
+          <tr>
+            <td colspan="2" class="table-secondary">
+              <h2 class="text-center mb-3">Biodata Karyawan</h2>
+            </td>
+          </tr>
           <tr>
             <th scope="row">Foto</th>
             <td><img src="{{ asset('storage/'.$karyawan->foto) }}" alt="" class="img-fluid profile"></td>

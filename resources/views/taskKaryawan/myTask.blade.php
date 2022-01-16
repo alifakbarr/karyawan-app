@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'My Task')
+@section('title', 'My Proyek')
 @section('content')
 <div class="table-responsive">
     <table class="table">

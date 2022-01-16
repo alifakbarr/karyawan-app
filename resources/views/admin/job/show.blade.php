@@ -1,6 +1,6 @@
 @extends('admin.layout.template')
 @section('title')
-    Job : {{ ucwords($job->nama) }}
+    Jabatan : {{ ucwords($job->nama) }}
 @endsection
 @section('content')
 <div class="container mt-3">
@@ -13,14 +13,11 @@
     <table class="table table-bordered ">
         <tbody>
             <tr class="">
-                <th class="text-center bg-primary text-white">Nama Pekerjaan</th>
+                <th class="text-center bg-primary text-white">Jabatan</th>
                 <td class="text-center fw-bold">{{ ucwords($job->nama) }}</td>
-            </tr>
-            <tr class="bg-primary text-white">
-                <th colspan="2" class="text-center ">Deskripsi</th>
-            </tr>
             <tr>
-                <td colspan="2" >{!! $job->keterangan !!}</td>
+              <th class="text-center bg-primary text-white">Deskripsi</th>
+                <td >{!! $job->keterangan !!}</td>
             </tr>
         </tbody>
       </table>

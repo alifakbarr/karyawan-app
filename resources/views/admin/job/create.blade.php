@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title','Add Job')
+@section('title','Tambah Jabatan')
 @section('content')
 <form action="{{ route('job.store') }}" method="post">
     @csrf

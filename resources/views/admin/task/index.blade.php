@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Task')
+@section('title', 'Proyek')
 @section('content')
 <div class="d-flex justify-content-end mb-2">
     <a href="{{ route('task.create') }}" class="btn btn-primary btn-sm ">Add</a>
@@ -25,15 +25,15 @@
           <td>
             <div class="d-flex justify-content-center">
               <a href="{{ route('task.show', $task->id) }}" class="text-decoration-none text-dark">
-                <span class="bg-secondary rounded p-1 fw-bold text-white">
-                  {{ $task->user_tasks->count() > 0 ? 'Sudah diambil' : 'Belum diambil' }}
+                <span class=" p-1 fw-bold ">
+                  {{ $task->user_tasks->count() > 0 ? 'Telah dibagi' : 'Belum dibagi' }}
                 </span>
               </a>
             </div>
           </td>
           <td>
-              <div class="d-flex justify-content-evenly">
-                  <a href="{{ route('task.edit', $task->id) }}" class="btn btn-warning btn-sm ">Edit</a>
+              <div class="d-flex justify-content-between">
+                  <a href="{{ route('task.edit', $task->id) }}" class="btn btn-warning btn-sm me-2">Edit</a>
                   <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $task->id }}">
                     Delete
                   </button>

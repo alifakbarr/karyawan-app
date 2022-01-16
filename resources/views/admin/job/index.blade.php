@@ -1,17 +1,17 @@
 @extends('admin.layout.template')
-@section('title','Job')
+@section('title','Jabatan')
 @section('content')
 @include('admin.layout.alert')
 
 <div class="d-flex justify-content-end mb-2">
-    <a href="{{ route('job.create') }}" class="btn btn-primary btn-sm ">Add</a>
+    <a href="{{ route('job.create') }}" class="btn btn-primary btn-sm ">Tambah</a>
 </div>
 <div class="table-responsive">
     <table class="table table-hover table-bordered ">
         <thead class="text-center">
           <tr class=" bg-primary text-white">
             <th scope="col">No</th>
-            <th scope="col">Job</th>
+            <th scope="col">Jabatan</th>
             <th scope="col">Option</th>
           </tr>
         </thead>
@@ -45,11 +45,11 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header bg-danger">
-          <h5 class="modal-title text-white fw-bold" id="exampleModalLabel">Delete Job</h5>
+          <h5 class="modal-title text-white fw-bold" id="exampleModalLabel">Hapus Jabatan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Yakin ingin menghapus job : <div class="fw-bold">{{ ucwords($job->nama) }}</div>
+          Yakin ingin menghapus jabatan : <div class="fw-bold">{{ ucwords($job->nama) }}</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

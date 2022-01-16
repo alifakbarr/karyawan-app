@@ -1,7 +1,5 @@
 @extends('admin.layout.template')
-@section('title')
-    {{ Auth::user()->name }}
-@endsection
+@section('title', 'Daftar Karyawan')
 @section('content')
 <div class="table-responsive">
     <table class="table table-hover table-sm">
@@ -9,7 +7,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Job</th>
+            <th scope="col">Jabatan</th>
             <th scope="col">Opsi</th>
           </tr>
         </thead>

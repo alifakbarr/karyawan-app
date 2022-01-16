@@ -1,5 +1,5 @@
 @extends('admin.layout.template')
-@section('title', 'Edit Profile Karyawan')
+@section('title', 'Edit Profile ')
 @section('content')
 <form action="{{ route('karyawan.update',$karyawan->id) }}" method="post" enctype="multipart/form-data">
     @csrf

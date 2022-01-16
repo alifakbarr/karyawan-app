@@ -21,12 +21,12 @@
       </li>
       <li class="sidebar-item {{ request()->is('job')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('job.index') }}">
-          <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Job</span>
+          <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">Jabatan</span>
         </a>
       </li>
       <li class="sidebar-item {{ request()->is('task')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('task.index') }}">
-          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Task</span>
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Proyek</span>
         </a>
       </li>
       @elseif(auth()->user()->hasRole('headOf'))
@@ -37,7 +37,7 @@
       </li>
       <li class="sidebar-item {{ request()->is('task')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('task.index') }}">
-          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Task</span>
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Proyek</span>
         </a>
       </li>
       <li class="sidebar-item {{ request()->is('handleKaryawan')? 'active':'' }}">
@@ -54,14 +54,14 @@
       </li>
       <li class="sidebar-item {{ request()->is('taskKaryawan/myTask')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('taskKaryawan.myTask',Auth::user()->id) }}">
-          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Tasks</span>
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Proyek</span>
         </a>
       </li>
-      <li class="sidebar-item {{ request()->is('taskKaryawan')? 'active':'' }}">
+      {{-- <li class="sidebar-item {{ request()->is('taskKaryawan')? 'active':'' }}">
         <a class="sidebar-link" href="{{ route('taskKaryawan.index',Auth::user()->id) }}">
-          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Tasks</span>
+          <i class="align-middle" data-feather="target"></i> <span class="align-middle">Proyek</span>
         </a>
-      </li>
+      </li> --}}
       @endif
 
     </ul>
